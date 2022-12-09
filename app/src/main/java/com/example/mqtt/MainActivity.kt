@@ -8,7 +8,7 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence
 
 
 private lateinit var instance: MainActivity
-var broker = "tcp://test.mosquitto.org:1883"
+var broker = "tcp://141.94.203.13:1883"
 // TLS/SSL
 // String broker = "ssl://broker.emqx.io:8883";
 var username = ""
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             val message = MqttMessage(encodedPayload)
             message.qos = 2
             message.isRetained = false
-            client.publish("zoubidac", message)
+            client.publish("zoubidac", message);
             client.subscribe("zoubidac", 1);
             client.subscribe("humidity", 1);
             Log.d("MQTT", "MEssage Publish")
